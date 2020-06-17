@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Font/Comfortaa-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/2D/heart_ic.png" type="Texture" id=2]
+[ext_resource path="res://Assets/2D/healthbar_bg.png" type="Texture" id=3]
+[ext_resource path="res://Assets/2D/healthbar_progress.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HealthIcon" type="TextureRect" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 126.0
+margin_bottom = 126.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = 164.605
+margin_top = 61.2168
+margin_right = 549.605
+margin_bottom = 106.217
+value = 50.0
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActiveItem" type="TextureRect" parent="."]
+margin_left = 1765.0
+margin_top = 40.0
+margin_right = 1880.0
+margin_bottom = 162.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemQuantity" type="Label" parent="ActiveItem"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -28.0
+custom_fonts/font = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
