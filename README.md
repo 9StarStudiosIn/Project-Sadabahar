@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Starting with Godot, it can be hard to find tutorials that teach you how to get a basic game up and running in 3D. I created this project so that people starting with Godot do not have to spend a lot of time figuring out how to do basic tasks like saving games or creating dialog boxes. Please keep in mind that I do not recommend you use the code or methods in this project for your actual game. The project is simple for the sake of teaching and does not follow best practices and isn't very extendable. That said, the project can still help you wrap your head around a variety of concept very easily.
+Starting with Godot, it can be hard to find tutorials that teach you how to get a basic game up and running in 3D. I created this project so that people starting with Godot do not have to spend a lot of time figuring out how to do basic tasks like saving games or creating dialog boxes. Please keep in mind that I do not recommend you use the code or methods in this project for your actual game. The project is simple for the sake of teaching and does not follow best practices and isn't very extendable. That said, the project can still help you wrap your head around a variety of concepts very easily.
 
 ## Features
 
@@ -38,5 +38,7 @@ Starting with Godot, it can be hard to find tutorials that teach you how to get 
 - [crunch](https://freesound.org/people/InspectorJ/sounds/412068/) by InspectorJ under [Attribution](https://creativecommons.org/licenses/by/3.0/)
 - [game_background](https://freesound.org/people/dobroide/sounds/22383/) by dobride under [Attribution](https://creativecommons.org/licenses/by/3.0/)
 - [dig](https://freesound.org/people/Agaxly/sounds/213005/) by Agaxly under [Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/)
-- The various contributors who spend their valuable time spending the amazing and free [Godot Engine](https://godotengine.org/)
+- The various contributors who spend their valuable time making the amazing and free [Godot Engine](https://godotengine.org/)
 - All the Youtubers and bloggers whose excellent tutorials helped me get started with game development and Godot.
+
+Project Sadabahar has been licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
