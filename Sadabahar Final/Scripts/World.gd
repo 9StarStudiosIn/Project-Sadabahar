@@ -41,6 +41,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ping_body"):
 		ping_item()
 	if Input.is_action_just_pressed("use_item"):
+		$Crunch.play()
 		update_item(true)
 	if Input.is_action_just_pressed("reply") and popup_visibility:
 		dialog.visible = false
@@ -61,6 +62,7 @@ func ping_item():
 			body_in_range.queue_free()
 			if item_quantity == 0:
 				activeItem.set_texture(carrot_icon)
+			$Dig.play()
 			update_item(false)
 		elif body_in_range.is_in_group("NPC"):
 			chat()

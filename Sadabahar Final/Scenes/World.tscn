@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=2]
@@ -8,11 +8,15 @@
 [ext_resource path="res://Scenes/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/DialogBox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Font/Comfortaa-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scenes/Tree.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/SoundFX/crunch.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/SoundFX/dig.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/SoundFX/game_background.wav" type="AudioStream" id=12]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.415686, 0.764706, 0.454902, 1 )
+albedo_color = Color( 0.309804, 0.584314, 0.341176, 1 )
 
 [sub_resource type="BoxShape" id=3]
 
@@ -116,6 +120,30 @@ margin_right = 255.0
 margin_bottom = 149.0
 custom_fonts/font = SubResource( 6 )
 text = "Save"
+
+[node name="Tree" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.0279 )
+
+[node name="Tree2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.312716, 0, -0.949847, 0, 1, 0, 0.949847, 0, 0.312716, 46.5974, 0, -47.6524 )
+
+[node name="Tree3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.234537, 0, -0.712385, 0, 0.8, 0, 0.712385, 0, 0.234537, -37.5228, 0, -43.1916 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 25.5, 42.2 )
+light_color = Color( 0.968627, 0.964706, 0.811765, 1 )
+shadow_enabled = true
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+
+[node name="Dig" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="Crunch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
 [connection signal="body_entered" from="Player/PlayerRange" to="." method="_on_PlayerRange_body_entered"]
 [connection signal="body_exited" from="Player/PlayerRange" to="." method="_on_PlayerRange_body_exited"]
 [connection signal="pressed" from="PauseScreen/ColorRect/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]

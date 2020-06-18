@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/2D/game_logo.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Font/Comfortaa-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/StartGameScreen.gd" type="Script" id=3]
+[ext_resource path="res://Assets/SoundFX/ui_select_sound.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -98,6 +99,9 @@ text = "Version 1.1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadGame" to="." method="_on_LoadGame_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitGame" to="." method="_on_QuitGame_pressed"]
