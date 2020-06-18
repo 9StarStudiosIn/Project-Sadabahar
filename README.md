@@ -25,9 +25,9 @@ Starting with Godot, it can be hard to find tutorials that teach you how to get 
 - Space to pause the game
 - Escape to go to the Start Screen
 
-## Bugs
+## Known Bugs
 
-- The 3d models have weird artefact when viewed from a distance
+- The 3d models have weird artefacts when viewed from a distance
 - The NPC might stop playing the animation after the player has been in it's range a couple of times
 
 ## Credits
