@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Sadabahar Final"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/StartGameScreen.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
 
 [display]
 
@@ -75,6 +79,11 @@ use_item={
 reply={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 

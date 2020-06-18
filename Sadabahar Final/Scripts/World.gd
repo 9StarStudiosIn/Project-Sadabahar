@@ -20,12 +20,24 @@ enum QuestState{
 
 func _ready():
 	dialog.visible = false
+	$PauseScreen/ColorRect.visible = false
 	quest_state = QuestState.DISCOVER_QUEST
+	if GameManager.load_game:
+		GameManager.load_game()
+		if GameManager.save_data["player_health"] != null:
+			read_saved_file()
 
 
 func _process(delta):
 	if Input.is_action_pressed("exit"):
-		get_tree().quit()
+		get_tree().change_scene("res://Scenes/StartGameScreen.tscn")
+	if Input.is_action_just_pressed("pause"):
+		GameManager.save_data["player_health"] = $HUD/HealthBar.get_value()
+		GameManager.save_data["carrots_in_field"] = get_tree().get_nodes_in_group("Carrot").size()
+		GameManager.save_data["carrots_in_inventory"] = item_quantity
+		GameManager.save_data["quest_state"] = quest_state
+		get_tree().paused = true
+		$PauseScreen/ColorRect.visible = true
 	if Input.is_action_just_pressed("ping_body"):
 		ping_item()
 	if Input.is_action_just_pressed("use_item"):
@@ -80,3 +92,40 @@ func chat():
 				healthBar.set_value(healthBar.get_value()-25)
 		QuestState.END_QUEST:
 			dialogSpeech.set_text("Thanks a lot for helping me today!")
+
+
+func read_saved_file():
+	healthBar.value = GameManager.save_data["player_health"]
+	quest_state = GameManager.save_data["quest_state"]
+	quest_state = int(quest_state)
+	if GameManager.save_data["carrots_in_field"] != 3:
+		activeItem.set_texture(carrot_icon)
+		item_quantity = GameManager.save_data["carrots_in_inventory"]
+		itemQuantity.set_text(str(item_quantity))
+		match int(GameManager.save_data["carrots_in_field"]):
+			0:
+				$Mud/Carrot.queue_free()
+				$Mud/Carrot2.queue_free()
+				$Mud/Carrot3.queue_free()
+			1:
+				$Mud/Carrot.queue_free()
+				$Mud/Carrot2.queue_free()
+			2:
+				$Mud/Carrot.queue_free()
+			3:
+				pass
+
+
+func _on_ResumeButton_pressed():
+	get_tree().paused = false
+	$PauseScreen/ColorRect.visible = false
+
+
+func _on_SaveButton_pressed():
+	GameManager.save_data["player_health"] = $HUD/HealthBar.get_value()
+	GameManager.save_data["carrots_in_field"] = get_tree().get_nodes_in_group("Carrot").size()
+	GameManager.save_data["carrots_in_inventory"] = item_quantity
+	GameManager.save_data["quest_state"] = quest_state
+	GameManager.save_game()
+	get_tree().paused = false
+	$PauseScreen/ColorRect.visible = false
